@@ -1,17 +1,27 @@
-package com.kodilla;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-public class Calculator
+class SimpleCalculator
 {
-    public void someMethod(){
-
-        System.out.println("It works!");
+    public int addAToB(int a, int b) {
+        return a + b;
     }
 
+    public int substractAFromB(int a, int b) {
+        return a - b;
+    }
+}
 
+class Application
+{
     public static void main(String[] args) {
 
-       Calculator calculator = new Calculator();
-       calculator.someMethod();
+        SimpleCalculator simpleCalculator = new SimpleCalculator();
+
+        int result = simpleCalculator.addAToB(5, 5);
+
+        System.out.println(result);
 
     }
 }
