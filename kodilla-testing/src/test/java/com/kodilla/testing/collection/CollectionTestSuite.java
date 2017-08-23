@@ -1,10 +1,12 @@
 package com.kodilla.testing.collection;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class CollectionTestSuite {
 
@@ -21,26 +23,14 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList (){
 
         //Given
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
-        //List emptyList = new ArrayList();
-        //When
-        boolean result = emptyList.isEmpty();
-        System.out.println("Testing " + result);
-        //Then
-        Assert.assertTrue(result);
+        OddNumbersExterminator emptyList = new OddNumbersExterminator();
 
+        //When
+        List<Integer> rusultList = emptyList.exterminate(numbers);
+        System.out.println("Testing " + rusultList);
+
+        //Then
+        Assert.assertTrue(numbers.size, 1);
     }
 
-    @Test
-    public void testOddNumbersExterminatorNormalList (){
-
-        //Given
-        ArrayList<Integer> normalList = new ArrayList<Integer>();
-        //When
-        int resultEvenOdd = numbers.get();
-        System.out.println("Testing " + resultEvenOdd);
-        //Then
-        Assert.assertEquals("numbers",resultEvenOdd);
-
-    }
 }
