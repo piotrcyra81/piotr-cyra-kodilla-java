@@ -5,11 +5,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionTestSuite {
 
-    ArrayList<Integer> numbers = new ArrayList<Integer>();
-    OddNumbersExterminator exterminator = new OddNumbersExterminator();
+   ArrayList<Integer> numbers = new ArrayList<Integer>();
+   OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
     @Before
     public void start() {
@@ -27,16 +28,20 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         System.out.println("Empty list - test");
-        ArrayList<Integer> rusultList = exterminator.exterminate(numbers);
-        Assert.assertTrue(rusultList.size() > 0);
+        List<Integer> resultList = exterminator.exterminate(numbers);
+        Assert.assertTrue(resultList.size() > 0);
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
         System.out.println("Odd numbers list - test");
-        ArrayList<Integer> rusultList = exterminator.exterminate(numbers);
-        for (int n = 0; n < rusultList.size(); n++) {
-            Assert.assertTrue(rusultList.get(n) % 2 == 0);
+        List<Integer> resultList  = exterminator.exterminate(numbers);
+        List<Integer> expectedList = new ArrayList<Integer>();
+        for(int i = 0; i < numbers.size(); i++){
+            if(numbers.get(i) % 2 == 0) {
+                expectedList.add(numbers.get(i));
+                Assert.assertEquals (resultList,expectedList);
+            }
         }
     }
 }
