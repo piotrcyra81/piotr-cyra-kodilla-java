@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CollectionTestSuite {
 
-   ArrayList<Integer> numbers = new ArrayList<Integer>();
+   List<Integer> numbers = new ArrayList<Integer>();
    OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
     @Before
