@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OddNumbersExterminator {
 
-    public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
+    public List<Integer> exterminate(ArrayList<Integer> numbers) {
 
         List<Integer> numbersOdd = new ArrayList<Integer>();
 
@@ -15,6 +15,6 @@ public class OddNumbersExterminator {
                 numbersOdd.add(numbers.get(i));
             }
         }
-        return (ArrayList<Integer>) numbersOdd;
+        return numbersOdd;
     }
 }
