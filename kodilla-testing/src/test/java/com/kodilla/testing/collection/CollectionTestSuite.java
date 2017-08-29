@@ -14,9 +14,14 @@ public class CollectionTestSuite {
 
     @Before
     public void start() {
+
         numbers.add(1);
         numbers.add(2);
         numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+        numbers.add(6);
+
         System.out.println("Start test");
     }
 
@@ -37,11 +42,11 @@ public class CollectionTestSuite {
         System.out.println("Odd numbers list - test");
         List<Integer> resultList  = exterminator.exterminate(numbers);
         List<Integer> expectedList = new ArrayList<Integer>();
-        for(int i = 0; i < numbers.size(); i++){
-            if(numbers.get(i) % 2 == 0) {
-                expectedList.add(numbers.get(i));
-                Assert.assertEquals (resultList,expectedList);
-            }
-        }
+
+        expectedList.add(2);
+        expectedList.add(4);
+        expectedList.add(6);
+
+        Assert.assertEquals (resultList,expectedList);
     }
 }
