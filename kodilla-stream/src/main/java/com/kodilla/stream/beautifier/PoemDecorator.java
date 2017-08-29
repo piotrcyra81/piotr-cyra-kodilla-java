@@ -1,5 +1,5 @@
 package com.kodilla.stream.beautifier;
 
 public interface PoemDecorator {
-    public String textBeauty(String txt0, String txt1);
+    public String textBeauty(String txt);
 }
