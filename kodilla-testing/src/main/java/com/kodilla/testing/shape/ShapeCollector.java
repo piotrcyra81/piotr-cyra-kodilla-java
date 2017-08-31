@@ -5,35 +5,20 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    List<String> shapeCollector = new ArrayList<String>();
+    List<String> shapes = new ArrayList<String>();
 
-    public ShapeCollector() {
+    public void showFigures() {
 
-       shapeCollector.add("Circle");
-       shapeCollector.add("Square");
-       shapeCollector.add("Triangle");
+        for(int i = 0; i < shapes.size(); i++){
+            System.out.println(shapes);
+        }
     }
 
-    public void showFigure() {
+    public void addFigure() {
 
-        Circle circle = new Circle();
-        Triangle triangle = new Triangle();
-        Square square = new Square();
-
-        circle.getShapeName();
-        triangle.getShapeName();
-        square.getShapeName();
-    }
-
-    public void showField() {
-
-        Circle circle = new Circle();
-        Triangle triangle = new Triangle();
-        Square square = new Square();
-
-        circle.getField();
-        triangle.getField();
-        square.getField();
+        shapes.add("Circle");
+        shapes.add("Square");
+        shapes.add("Triangle");
     }
 
 }

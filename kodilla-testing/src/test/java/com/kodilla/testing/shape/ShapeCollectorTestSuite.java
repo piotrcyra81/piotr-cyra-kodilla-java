@@ -9,7 +9,7 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector names = new ShapeCollector();
         //When
-        names.showFigure();
+       //names.showFigure();
         //Then
         //do nothing
     }
@@ -19,7 +19,7 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector fields = new ShapeCollector();
         //When
-        fields.showField();
+       // fields.showField();
         //Then
         //do nothing
     }
