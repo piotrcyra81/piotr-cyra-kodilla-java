@@ -14,11 +14,30 @@ public class ShapeCollector {
         }
     }
 
-    public void addFigure() {
+    public addFigure(Shape shape) {
 
         shapes.add("Circle");
         shapes.add("Square");
         shapes.add("Triangle");
+
+        return(shapes);
+    }
+
+    public removeFigure(Shape shape) {
+
+        shapes.remove("Circle");
+        shapes.remove("Square");
+        shapes.remove("Triangle");
+
+        return(shapes);
+    }
+
+    public getFigure(int n) {
+
+        for(n=0;n<=shapes.size();n++) {
+            shapes.get(n);
+        }
+        return(shapes);
     }
 
 }
