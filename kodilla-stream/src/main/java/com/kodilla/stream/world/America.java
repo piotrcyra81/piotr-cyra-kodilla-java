@@ -2,10 +2,10 @@ package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
 
-public final class Continent implements PeopleStorage {
+public final class America implements PeopleStorage {
     @Override
     public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = new BigDecimal("123456789");
+        BigDecimal peopleQuantity = new BigDecimal("12345678");
         return peopleQuantity;
     }
 }
