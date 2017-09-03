@@ -7,8 +7,8 @@ public class Circle implements Shape {
         return "This is a Circle";
     }
 
-    public String getField() {
-        System.out.println("Circle field");
-        return "Circle field";
+    public int getField() {
+        System.out.println("Circle field: ");
+        return 5;
     }
 }

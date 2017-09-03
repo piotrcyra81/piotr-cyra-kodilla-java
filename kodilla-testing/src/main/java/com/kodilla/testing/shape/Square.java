@@ -7,8 +7,8 @@ public class Square implements Shape {
         return "This is a Square";
     }
 
-    public String getField() {
-        System.out.println("Square field");
-        return "Square field";
+    public int getField() {
+        System.out.println("Square field: ");
+        return 25;
     }
 }

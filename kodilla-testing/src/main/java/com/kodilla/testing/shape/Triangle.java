@@ -7,9 +7,9 @@ public class Triangle implements Shape {
         return "This is a Triangle";
     }
 
-    public String getField() {
-        System.out.println("Triangle field");
-        return "Triangle field";
+    public int getField() {
+        System.out.println("Triangle field: ");
+        return 15;
     }
 }
 

@@ -1,27 +1,40 @@
 package com.kodilla.testing.shape;
-import org.junit.Test;
 
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class ShapeCollectorTestSuite {
 
     @Test
-    public void testShowName() {
-        //Given
-        ShapeCollector names = new ShapeCollector();
-        //When
-       //names.showFigure();
-        //Then
-        //do nothing
+    public void testShapeAdd() {
+
+        ShapeCollector shapeList = new ShapeCollector();
+
+        Circle circle = new Circle();
+        Square square = new Square();
+        Triangle triangle = new Triangle();
+
+        shapeList.addFigure(circle);
+        shapeList.addFigure(square);
+        shapeList.addFigure(triangle);
+
+        assertEquals(3, shapeList.shapes.size());
     }
 
     @Test
-    public void testShowField() {
-        //Given
-        ShapeCollector fields = new ShapeCollector();
-        //When
-       // fields.showField();
-        //Then
-        //do nothing
-    }
+    public void testShapeRemove() {
 
+        ShapeCollector shapeList = new ShapeCollector();
+
+        Circle circle = new Circle();
+        Square square = new Square();
+        Triangle triangle = new Triangle();
+
+        shapeList.addFigure(circle);
+        shapeList.addFigure(square);
+        shapeList.addFigure(triangle);
+
+        shapeList.removeFigure(circle);
+        assertEquals(2, shapeList.shapes.size());
+    }
 }
