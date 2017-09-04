@@ -3,6 +3,7 @@ package com.kodilla.testing.shape;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+
 public class ShapeCollectorTestSuite {
 
     @Test
@@ -36,5 +37,22 @@ public class ShapeCollectorTestSuite {
 
         shapeList.removeFigure(circle);
         assertEquals(2, shapeList.shapes.size());
+    }
+
+    @Test
+    public void testShapeGet() {
+
+        ShapeCollector shapeList = new ShapeCollector();
+
+        Circle circle = new Circle();
+        Square square = new Square();
+        Triangle triangle = new Triangle();
+
+        shapeList.addFigure(circle);
+        shapeList.addFigure(square);
+        shapeList.addFigure(triangle);
+
+        Shape result  = shapeList.getFigure(2);
+        assertEquals(triangle, result);
     }
 }

@@ -15,4 +15,7 @@ public class ShapeCollector {
         shapes.remove(shape);
     }
 
+    public Shape getFigure(int n) {
+        return shapes.get(n);
+    }
 }
