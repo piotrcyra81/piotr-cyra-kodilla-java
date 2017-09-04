@@ -11,9 +11,9 @@ public class ShapeCollectorTestSuite {
 
         ShapeCollector shapeList = new ShapeCollector();
 
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Shape circle = new Circle();
+        Shape square = new Square();
+        Shape triangle = new Triangle();
 
         shapeList.addFigure(circle);
         shapeList.addFigure(square);
@@ -27,9 +27,9 @@ public class ShapeCollectorTestSuite {
 
         ShapeCollector shapeList = new ShapeCollector();
 
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Shape circle = new Circle();
+        Shape square = new Square();
+        Shape triangle = new Triangle();
 
         shapeList.addFigure(circle);
         shapeList.addFigure(square);
@@ -44,9 +44,9 @@ public class ShapeCollectorTestSuite {
 
         ShapeCollector shapeList = new ShapeCollector();
 
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Shape circle = new Circle();
+        Shape square = new Square();
+        Shape triangle = new Triangle();
 
         shapeList.addFigure(circle);
         shapeList.addFigure(square);
