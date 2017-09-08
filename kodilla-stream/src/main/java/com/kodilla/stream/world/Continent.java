@@ -1,11 +1,16 @@
 package com.kodilla.stream.world;
 
-import java.math.BigDecimal;
+import java.util.HashSet;
 
-public final class Continent implements PeopleStorage {
-    @Override
-    public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = new BigDecimal("123456789");
-        return peopleQuantity;
+public class Continent {
+    private final HashSet<Country> countries;
+    private final String continentName;
+
+    public Continent(String continentName, HashSet<Country> countries ) {
+        this.continentName = continentName;
+        this.countries = countries;
+    }
+    public HashSet<Country> getCountries() {
+        return new HashSet<>(countries);
     }
 }

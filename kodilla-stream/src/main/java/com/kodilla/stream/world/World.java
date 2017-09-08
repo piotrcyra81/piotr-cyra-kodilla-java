@@ -1,11 +1,20 @@
 package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 
-public final class World implements PeopleStorage{
-    @Override
+public class World {
+
+    private HashSet<Continent> continents = new HashSet<>();
+
+    public World(HashSet<Continent> continents) {
+        this.continents = continents;
+    }
+
     public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = new BigDecimal("1234567890");
-        return peopleQuantity;
+        return continents.stream()
+                .flatMap(people -> people.getCountries().stream())
+                .map(Country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }
 }
