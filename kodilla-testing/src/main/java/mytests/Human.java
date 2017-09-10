@@ -4,33 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface Human {
-    public String getHumanSex();
     public int getHumanAge();
 }
 
 class Men implements Human{
 
     int age;
-    String sex;
 
-    public Men(int age, String sex) {
+    public Men(int age) {
         this.age = age;
-        this.sex = sex;
     }
 
     public int getHumanAge(){
         return age;
     }
 
-    public String getHumanSex(){
-        return sex;
-    }
-
     @Override
     public String toString() {
         return "Men{" +
                 "age=" + age +
-                ", sex='" + sex + '\'' +
                 '}';
     }
 }
@@ -38,24 +30,19 @@ class Men implements Human{
 class Women implements Human{
 
     int age;
-    String sex;
 
-    public Women(int age, String sex) {
+    public Women(int age) {
         this.age = age;
-        this.sex = sex;
     }
+
     public int getHumanAge(){
         return age;
-    }
-    public String getHumanSex(){
-        return sex;
     }
 
     @Override
     public String toString() {
         return "Women{" +
                 "age=" + age +
-                ", sex='" + sex + '\'' +
                 '}';
     }
 }
@@ -65,10 +52,8 @@ class HumanCollector {
     List<Human> adultsList = new ArrayList<>();
     List<Human> childrenList = new ArrayList<>();
 
-    Men men = new Men(27, "Men");
-    Women women = new Women(17, "Women");
 
-    public void humanAgeMen() {
+    public void humanAgeMen(Men men) {
         if (men.age>18){
         adultsList.add(men);
         }
@@ -77,23 +62,12 @@ class HumanCollector {
         }
     }
 
-    public void humanAgeWomen() {
+    public void humanAgeWomen(Women women) {
         if (women.age>18){
             adultsList.add(women);
         }
         else {
             childrenList.add(women);
-        }
-    }
-
-    public void humanSex() {
-        String resultManSex = men.getHumanSex();
-        String resultWomanSex = women.getHumanSex();
-
-        if (resultManSex.equals("Men")&&resultWomanSex.equals("Women")){
-            System.out.println("Humans test OK");
-        } else {
-            System.out.println("Error! Aliens");
         }
     }
 
@@ -108,9 +82,12 @@ class TestHumanAge
     public static void main (String[] args) throws Exception
     {
         HumanCollector humanCollector = new HumanCollector();
-        humanCollector.humanAgeMen();
-        humanCollector.humanAgeWomen();
-        humanCollector.humanSex();
+
+        Men men = new Men(27);
+        Women women = new Women(17);
+
+        humanCollector.humanAgeMen(men);
+        humanCollector.humanAgeWomen(women);
         humanCollector.showHumanAge();
     }
 }
