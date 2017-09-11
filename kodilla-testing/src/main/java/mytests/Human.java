@@ -52,23 +52,14 @@ class HumanCollector {
     List<Human> adultsList = new ArrayList<>();
     List<Human> childrenList = new ArrayList<>();
 
+    public void addHuman(Human human) {
 
-    public void humanAgeMen(Men men) {
-        if (men.age>18){
-        adultsList.add(men);
+        if(human.getHumanAge()>18) {
+            adultsList.add(human);
         }
-        else {
-            childrenList.add(men);
-        }
-    }
-
-    public void humanAgeWomen(Women women) {
-        if (women.age>18){
-            adultsList.add(women);
-        }
-        else {
-            childrenList.add(women);
-        }
+        else{
+            childrenList.add(human);
+            }
     }
 
     public void showHumanAge(){
@@ -86,8 +77,8 @@ class TestHumanAge
         Men men = new Men(27);
         Women women = new Women(17);
 
-        humanCollector.humanAgeMen(men);
-        humanCollector.humanAgeWomen(women);
+        humanCollector.addHuman(men);
+        humanCollector.addHuman(women);
         humanCollector.showHumanAge();
     }
 }
