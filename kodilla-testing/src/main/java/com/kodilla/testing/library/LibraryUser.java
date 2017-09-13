@@ -1,6 +1,7 @@
 package com.kodilla.testing.library;
 
 public class LibraryUser {
+
     String firstname;
     String lastname;
     String peselId;

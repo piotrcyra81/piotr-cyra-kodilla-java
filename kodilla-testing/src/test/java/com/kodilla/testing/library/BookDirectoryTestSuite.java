@@ -77,8 +77,7 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf10Books = generateListOfNBooks(10);
-        when(libraryDatabaseMock.listBooksWithCondition(anyString()))
-                .thenReturn(resultListOf10Books);
+        when(libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf10Books);
 
         // When
         List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
@@ -99,6 +98,7 @@ public class BookDirectoryTestSuite {
 
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(newListOfBooks);
         assertEquals(0, newListOfBooks.size());
+        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(libraryUser);
     }
 
     @Test
@@ -112,6 +112,7 @@ public class BookDirectoryTestSuite {
 
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(newListOfBooks);
         assertEquals(1, newListOfBooks.size());
+        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(libraryUser);
     }
 
     @Test
@@ -125,5 +126,6 @@ public class BookDirectoryTestSuite {
 
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(newListOfBooks);
         assertEquals(5, newListOfBooks.size());
+        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(libraryUser);
     }
 }
