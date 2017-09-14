@@ -13,10 +13,10 @@ class Men implements Human{
     String sex;
     String profession;
 
-    public Men(int age) {
+    public Men(int age, String profession) {
         this.age = age;
+        this.profession = profession;
         this.sex = "M";
-        this.profession = "Butcher";
     }
 
     public int getHumanAge(){
@@ -47,10 +47,10 @@ class Women implements Human{
     String sex;
     String profession;
 
-    public Women(int age) {
+    public Women(int age, String profession) {
         this.age = age;
         this.sex = "W";
-        this.profession = "Medical";
+        this.profession = profession;
     }
 
     public int getHumanAge(){
@@ -73,7 +73,6 @@ class Women implements Human{
                 ", profession='" + profession + '\'' +
                 '}';
     }
-
 }
 
 class HumanCollector {
@@ -100,10 +99,28 @@ class TestHumanAge
     {
         HumanCollector humanCollector = new HumanCollector();
 
-        Men men = new Men(27);
-        Women women = new Women(17);
+        Men men1 = new Men(27, "Butcher");
+        Men men2 = new Men(16, "Actor");
+        Men men3 = new Men(44, "Carpenter");
+        Men men4 = new Men(65, "Plumber");
+        Men men5 = new Men(16, "Model");
 
-        humanCollector.addHuman(men);
-        humanCollector.addHuman(women);
+        Women women1 = new Women(15,"Actress");
+        Women women2 = new Women(17,"Student");
+        Women women3 = new Women(38,"Pilot");
+        Women women4 = new Women(19,"Driver");
+        Women women5 = new Women(58,"Nurse");
+
+        humanCollector.addHuman(men1);
+        humanCollector.addHuman(men2);
+        humanCollector.addHuman(men3);
+        humanCollector.addHuman(men4);
+        humanCollector.addHuman(men5);
+
+        humanCollector.addHuman(women1);
+        humanCollector.addHuman(women2);
+        humanCollector.addHuman(women3);
+        humanCollector.addHuman(women4);
+        humanCollector.addHuman(women5);
     }
 }
