@@ -84,11 +84,9 @@ class HumanCollector {
 
         if(human.getHumanAge()>18) {
             adultsList.add(human);
-            System.out.println("Adults list = " + adultsList);
         }
         else{
             childrenList.add(human);
-            System.out.println("Children list = " + childrenList);
         }
     }
 }
@@ -122,5 +120,8 @@ class TestHumanAge
         humanCollector.addHuman(women3);
         humanCollector.addHuman(women4);
         humanCollector.addHuman(women5);
+
+        System.out.println("Children list = " + humanCollector.childrenList);
+        System.out.println("Adults list = " + humanCollector.adultsList);
     }
 }
