@@ -6,31 +6,32 @@ import java.util.Map;
 
 public class FlightSearch {
 
-    public void findFilght(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
         Map<String, Boolean> airports = new HashMap<>();
-        airports.put("Warsaw Air Port", false);
-        airports.put("Cracow Air Port", true);
+        airports.put("Warsaw Air Port", true);
 
-        for (Map.Entry<String, Boolean> entry : airports.entrySet()) {
-
-            String key = entry.getKey();
-            Boolean value = entry.getValue();
-
-            if (key == flight.getArrivalAirport() && value == true) {
-                System.out.println("Have a nice flight");
-                if (key == flight.getDepartureAirport() && value == true || key == flight.getArrivalAirport() && value == true) {
-                } else {
-                    throw new RouteNotFoundException("No airplane connection!");
-                }
-            }
+        if (airports.containsKey(flight.getArrivalAirport())) {
+            System.out.println("Arrival airport " + flight.getArrivalAirport() + " is available");
+            return airports.get(flight.getArrivalAirport());
         }
+        throw new RouteNotFoundException("No airplane connection!");
     }
 
-    public static void main(String[] args) throws RouteNotFoundException {
+    public static void main(String[] args){
 
-        Flight flight = new Flight("Warsaw Air Port", "Cracow Air Port");
+        Flight firstFlight = new Flight("Cracow Air Port", "Warsaw Air Port");
+
         FlightSearch flightSearch = new FlightSearch();
-        flightSearch.findFilght(flight);
+
+        try {
+            flightSearch.findFlight(firstFlight);
+        }
+        catch (RouteNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            System.out.println("Have a nice flight");
+        }
     }
 }
