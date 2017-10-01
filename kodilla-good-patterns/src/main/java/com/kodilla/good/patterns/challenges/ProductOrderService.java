@@ -1,12 +1,12 @@
 package com.kodilla.good.patterns.challenges;
 import java.util.ArrayList;
 
-public class OrderInformation {
+public class ProductOrderService {
 
     public SellingInformation sellingInformation;
 
 
-    public OrderInformation(final SellingInformation informationService) {
+    public ProductOrderService(SellingInformation informationService) {
         this.sellingInformation = informationService;
     }
 

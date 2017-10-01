@@ -13,7 +13,7 @@ public class ApplicationStore {
         boolean availableStuff = payload.productAvailable(products, order);
 
         SellingInformation informationService = new SellingInformation(order, availableStuff);
-        OrderInformation orderInformation = new OrderInformation(informationService);
+        ProductOrderService orderInformation = new ProductOrderService(informationService);
 
         orderInformation.process(order, products);
     }
