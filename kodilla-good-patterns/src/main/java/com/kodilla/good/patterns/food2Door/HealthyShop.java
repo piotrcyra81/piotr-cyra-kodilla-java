@@ -1,28 +1,42 @@
 package com.kodilla.good.patterns.food2Door;
 
-public class HealthyShop {
+public class HealthyShop implements Provider{
 
-    public void process() {
-        infoAboutProvider();
-        productType();
-        quantityOfProduct();
-        successOrder();
+    String infoAboutShop;
+    String typeOfShopProducts;
+    double quantityOfProducts;
+    boolean orderInformation;
+
+    public HealthyShop(String infoAboutShop, String typeOfShopProducts, double quantityOfProducts, boolean orderInformation) {
+        this.infoAboutShop = infoAboutShop;
+        this.typeOfShopProducts = typeOfShopProducts;
+        this.quantityOfProducts = quantityOfProducts;
+        this.orderInformation = orderInformation;
     }
 
-    public void infoAboutProvider() {
-        System.out.println("HealthyShop");
+    public String infoAboutProvider() {
+        return infoAboutShop;
     }
 
-    public void productType() {
-        System.out.println("Healthy Food");
+    public String productType() {
+        return typeOfShopProducts;
     }
 
-    public void quantityOfProduct() {
-        System.out.println("Healthy Food Quantity");
+    public double quantityOfProduct() {
+        return quantityOfProducts;
     }
 
     public boolean successOrder() {
-        System.out.println("Healthy Food Delivered");
-        return true;
+        return orderInformation;
+    }
+
+    @Override
+    public String toString() {
+        return "HealthyShop{" +
+                "infoAboutShop='" + infoAboutShop + '\'' +
+                ", typeOfShopProducts='" + typeOfShopProducts + '\'' +
+                ", quantityOfProducts=" + quantityOfProducts +
+                ", orderInformation=" + orderInformation +
+                '}';
     }
 }

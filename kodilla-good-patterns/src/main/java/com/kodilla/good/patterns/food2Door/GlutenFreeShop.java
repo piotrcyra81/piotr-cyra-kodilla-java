@@ -1,28 +1,42 @@
 package com.kodilla.good.patterns.food2Door;
 
-public class GlutenFreeShop {
+public class GlutenFreeShop implements Provider{
 
-    public void process() {
-        infoAboutProvider();
-        productType();
-        quantityOfProduct();
-        successOrder();
+    String infoAboutShop;
+    String typeOfShopProducts;
+    double quantityOfProducts;
+    boolean orderInformation;
+
+    public GlutenFreeShop(String infoAboutShop, String typeOfShopProducts, double quantityOfProducts, boolean orderInformation) {
+        this.infoAboutShop = infoAboutShop;
+        this.typeOfShopProducts = typeOfShopProducts;
+        this.quantityOfProducts = quantityOfProducts;
+        this.orderInformation = orderInformation;
     }
 
-    public void infoAboutProvider() {
-        System.out.println("GlutenFreeShop");
+    public String infoAboutProvider() {
+        return infoAboutShop;
     }
 
-    public void productType() {
-        System.out.println("Gluten Free Food");
+    public String productType() {
+        return typeOfShopProducts;
     }
 
-    public void quantityOfProduct() {
-        System.out.println("Gluten Free Food Quantity");
+    public double quantityOfProduct() {
+        return quantityOfProducts;
     }
 
     public boolean successOrder() {
-        System.out.println("Gluten Free Food Delivered");
-        return true;
+        return orderInformation;
+    }
+
+    @Override
+    public String toString() {
+        return "GlutenFreeShop{" +
+                "infoAboutShop='" + infoAboutShop + '\'' +
+                ", typeOfShopProducts='" + typeOfShopProducts + '\'' +
+                ", quantityOfProducts=" + quantityOfProducts +
+                ", orderInformation=" + orderInformation +
+                '}';
     }
 }

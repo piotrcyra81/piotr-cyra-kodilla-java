@@ -4,17 +4,17 @@ public class Food2DoorApp {
 
     public static void main(String[] args) {
 
-        ExtraFoodShop extraFoodShop = new ExtraFoodShop();
-        extraFoodShop.process();
+        ProviderCollector providerCollector = new ProviderCollector();
 
-        HealthyShop healthyShop = new HealthyShop();
-        healthyShop.process();
+        Provider extraFoodShop = new ExtraFoodShop("Extra Food Shop","Extra Food",500, true);
+        Provider glutenFreeShop = new GlutenFreeShop("Gluten Free Shop","Gluten Free Food",800, true);
+        Provider healthyShop = new HealthyShop("Healthy Shop","Healthy Free Food",352, false);
 
-        GlutenFreeShop glutenFreeShop = new GlutenFreeShop();
-        glutenFreeShop.process();
+        providerCollector.addProvider(extraFoodShop);
+        providerCollector.addProvider(glutenFreeShop);
+        providerCollector.addProvider(healthyShop);
 
-        NewShop newShop = new NewShop();
-        newShop.process();
+        System.out.println("Provider list = " +"\n"+ providerCollector.providerList);
 
     }
 }
