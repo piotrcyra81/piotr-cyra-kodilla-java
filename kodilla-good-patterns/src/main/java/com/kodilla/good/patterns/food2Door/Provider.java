@@ -5,4 +5,5 @@ interface Provider {
      String productType();
      double quantityOfProduct();
      boolean successOrder();
+     void process();
 }

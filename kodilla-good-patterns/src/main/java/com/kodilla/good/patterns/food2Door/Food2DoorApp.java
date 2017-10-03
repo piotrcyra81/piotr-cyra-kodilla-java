@@ -14,6 +14,10 @@ public class Food2DoorApp {
         providerCollector.addProvider(glutenFreeShop);
         providerCollector.addProvider(healthyShop);
 
+        extraFoodShop.process();
+        glutenFreeShop.process();
+        healthyShop.process();
+
         System.out.println("Provider list = " +"\n"+ providerCollector.providerList);
 
     }

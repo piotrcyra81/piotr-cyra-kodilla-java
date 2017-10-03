@@ -14,6 +14,12 @@ public class HealthyShop implements Provider{
         this.orderInformation = orderInformation;
     }
 
+    public void process() {
+        System.out.println("Healthy Shop - Check status");
+        System.out.println("Healthy Shop - Prepare products");
+        System.out.println("Healthy Shop - Delivery");
+    }
+
     public String infoAboutProvider() {
         return infoAboutShop;
     }

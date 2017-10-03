@@ -14,6 +14,12 @@ public class ExtraFoodShop implements Provider {
         this.orderInformation = orderInformation;
     }
 
+    public void process() {
+        System.out.println("Extra Food Shop - Check status");
+        System.out.println("Extra Food Shop - Prepare products");
+        System.out.println("Extra Food Shop - Delivery");
+    }
+
     public String infoAboutProvider() {
         return infoAboutShop;
     }
