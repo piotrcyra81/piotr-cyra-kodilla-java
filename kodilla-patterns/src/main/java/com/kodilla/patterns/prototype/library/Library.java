@@ -9,6 +9,7 @@ public final class Library extends Prototype {
     String name;
     Set<Book> books = new HashSet<>();
 
+
     public Library(final String name) {
         this.name = name;
     }
@@ -35,10 +36,13 @@ public final class Library extends Prototype {
     }
 
     public Library deepCopy() throws CloneNotSupportedException {
+
         Library cloneLibrary = (Library)super.clone();
         cloneLibrary.books = new HashSet<>();
+
         for (Book book: books) {
-            cloneLibrary.getBooks().add(book);
+            Book newbook = new Book(book.getTitle(),book.getAuthor(),book.getPublicationDate());
+            cloneLibrary.getBooks().add(newbook);
         }
         return cloneLibrary;
     }
