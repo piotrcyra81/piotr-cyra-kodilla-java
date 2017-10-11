@@ -12,25 +12,22 @@ public final class Library extends Prototype {
     public Library(final String name) {
         this.name = name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getName() {
         return name;
     }
-
     public Set<Book> getBooks() {
         return books;
     }
-
     @Override
     public String toString() {
-        return "Library{" +
-                "name='" + name + '\'' +
-                ", books=" + books +
-                '}';
+        String s = "Library [" + name + "]\n";
+        for (Book book : books) {
+            s = s + book.toString() + "\n";
+        }
+        return s;
     }
 
     public Library shallowCopy() throws CloneNotSupportedException {
@@ -38,11 +35,11 @@ public final class Library extends Prototype {
     }
 
     public Library deepCopy() throws CloneNotSupportedException {
-        Library deepCloneLibrary = (Library)super.clone();
-        deepCloneLibrary.books = new HashSet<>();
+        Library cloneLibrary = (Library)super.clone();
+        cloneLibrary.books = new HashSet<>();
         for (Book book: books) {
-            deepCloneLibrary.getBooks().add(book);
+            cloneLibrary.getBooks().add(book);
         }
-        return deepCloneLibrary;
+        return cloneLibrary;
     }
 }
