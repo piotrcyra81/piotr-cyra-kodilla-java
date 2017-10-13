@@ -14,11 +14,11 @@ public class User {
         return name;
     }
 
-    public String predict() {
+    public String sharePost() {
         return socialPublisher.share();
     }
 
-    public void sharePost(SocialPublisher socialPublisher) {
+    public void setSharingStrategy(SocialPublisher socialPublisher) {
         this.socialPublisher = socialPublisher;
     }
 }

@@ -17,11 +17,11 @@ public class UserTestSuite {
         User kodilla = new ZGeneration("Kodilla");
 
         //When
-        String stevenShouldBe = steven.predict();
+        String stevenShouldBe = steven.sharePost();
         System.out.println("Steven should be: " + stevenShouldBe);
-        String johnShouldBe = john.predict();
+        String johnShouldBe = john.sharePost();
         System.out.println("John should be : " + johnShouldBe);
-        String kodillaShouldBe = kodilla.predict();
+        String kodillaShouldBe = kodilla.sharePost();
         System.out.println("Kodilla should be: " + kodillaShouldBe);
 
         //Then
@@ -36,10 +36,10 @@ public class UserTestSuite {
         User steven = new Millenials("Steven Links");
 
         //When
-        String stevenShouldBe = steven.predict();
+        String stevenShouldBe = steven.sharePost();
         System.out.println("Steven should be: " + stevenShouldBe);
-        steven.sharePost(new SnapchatPublisher());
-        stevenShouldBe = steven.predict();
+        steven.setSharingStrategy(new SnapchatPublisher());
+        stevenShouldBe = steven.sharePost();
         System.out.println("Steven now should be: " + stevenShouldBe);
 
         //Then
