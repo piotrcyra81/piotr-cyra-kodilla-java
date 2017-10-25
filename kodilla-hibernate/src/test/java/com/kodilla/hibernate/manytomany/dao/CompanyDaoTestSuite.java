@@ -66,7 +66,7 @@ public class CompanyDaoTestSuite {
     }
 
     @Test
-    public void testEmployeesLastNameAndCompanyWithFirstThreeLetters() {
+    public void testEmployeesLastNameAndCompanyFirstThreeLetters() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
