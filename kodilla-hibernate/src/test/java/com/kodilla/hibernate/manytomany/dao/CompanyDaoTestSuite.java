@@ -103,7 +103,7 @@ public class CompanyDaoTestSuite {
         int lindaKovalskyId = lindaKovalsky.getId();
 
         //When
-        List<Employee> employeesLastName = employeeDao.retrieveEmployeeLastName("Kovalsky");
+        List<Employee> employeesLastName = employeeDao.retrieveEmployeeLastName("Smith");
         List<Company> companyWithFirstThreeLetters = companyDao.retrieveCompanyFirstThreeLetters("Sof");
 
         //Then
