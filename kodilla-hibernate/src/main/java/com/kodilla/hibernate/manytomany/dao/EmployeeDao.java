@@ -7,11 +7,16 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.List;
+import java.util.Set;
+
 
 @Transactional
 @Repository
 public interface EmployeeDao extends CrudRepository<Employee, Integer> {
+
     @Query
-    List<Employee> retrieveEmployeeLastName(@Param("LASTNAME") String lastname);
+    Set<Employee> retrieveEmployeesByLastName(@Param("LASTNAME") String lastname);
+
+    @Query
+    Set<Employee> retrieveEmployeesByPartOfName(@Param("ARG") String partOfName);
 }

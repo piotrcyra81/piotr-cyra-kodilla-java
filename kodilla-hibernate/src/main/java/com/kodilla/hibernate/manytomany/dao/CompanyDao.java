@@ -5,12 +5,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import javax.transaction.Transactional;
-import java.util.List;
+import java.util.Set;
+
 
 @Transactional
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query
-    List<Company> retrieveCompanyFirstThreeLetters(@Param("COMPANY_NAME") String name);
+    Set<Company> retrieveCompaniesByPartOfName(@Param("ARG") String partOfName);
+
+    @Query
+    Set<Company> retrieveCompaniesByNameStartsWith(@Param("PARTOFNAME") String partOfName);
 }
