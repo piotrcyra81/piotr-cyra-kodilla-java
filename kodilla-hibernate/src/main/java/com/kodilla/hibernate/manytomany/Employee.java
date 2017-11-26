@@ -2,51 +2,33 @@ package com.kodilla.hibernate.manytomany;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-
-@Entity
 @NamedQueries({
         @NamedQuery(
-                name = "Employee.retrieveEmployeesByLastName",
-                query = "FROM Employee WHERE lastname = :LASTNAME"),
+                name = "Employee.retrieveEmployeeWithLastname",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
         @NamedQuery(
-                name = "Employee.retrieveEmployeesByPartOfName",
-                query = "FROM Employee WHERE (lower(firstname) like lower(:ARG)) OR (lower(lastname) like lower(:ARG))")
+                name = "Employee.retrieveEmployee",
+                query = "FROM Employee WHERE firstname LIKE :ARG OR lastname LIKE :ARG"
+        )
 })
+@Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
     private int id;
     private String firstname;
     private String lastname;
-    private Set<Company> companies = new HashSet<>();
+    private List<Company> companies = new ArrayList<>();
 
     public Employee() {
     }
 
-    public Employee(final String firstname, final String lastname) {
+    public Employee(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
-    }
-
-    public void addCompany(final Company company) {
-        companies.add(company);
-        company.getEmployees().add(this);
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "JOIN_COMPANY_EMPLOYEE",
-            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID",
-                    referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID",
-                    referencedColumnName = "COMPANY_ID")})
-    public Set<Company> getCompanies() {
-        return companies;
-    }
-
-    public void setCompanies(final Set<Company> companies) {
-        this.companies = companies;
     }
 
     @Id
@@ -68,45 +50,29 @@ public class Employee {
     public String getLastname() {
         return lastname;
     }
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "JOIN_COMPANY_EMPLOYEE",
+            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+    )
+    public List<Company> getCompanies() {
+        return companies;
+    }
 
-    private void setId(final int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    private void setFirstname(final String firstname) {
+    private void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    private void setLastname(final String lastname) {
+    private void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        final Employee employee = (Employee) o;
-
-        if (!firstname.equals(employee.firstname)) {
-            return false;
-        }
-        return lastname.equals(employee.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = firstname.hashCode();
-        result = 31 * result + lastname.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" + "firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + '}';
+    private void setCompanies(List<Company> companies) {
+        this.companies = companies;
     }
 }
