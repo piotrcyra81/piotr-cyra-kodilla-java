@@ -1,15 +1,13 @@
-package com.kodilla.hibernate.manytomany;
+package com.kodilla.hibernate.facade.employees;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveCompanyWithFirstThreeLetters",
-        query = "SELECT * FROM COMPANIES " +
-                "WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :COMPANY_NAME",
-        resultClass = Company.class
+@NamedQuery(
+        name = "Company.searchCompanyByName",
+        query = "FROM Company WHERE name LIKE :fragmentOfCompanyName"
 )
 
 @Entity

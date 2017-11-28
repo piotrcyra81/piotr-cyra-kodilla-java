@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.manytomany;
+package com.kodilla.hibernate.facade.employees;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -7,8 +7,8 @@ import java.util.List;
 
 
 @NamedQuery(
-        name = "Employee.retrieveEmployeeWithLastName",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+        name = "Employee.searchEmployeeByLastname",
+        query = "FROM Employee WHERE lastname LIKE :fragmentOfEmplyeeLastName"
 )
 
 @Entity
@@ -18,6 +18,7 @@ public class Employee {
     private String firstname;
     private String lastname;
     private List<Company> companies = new ArrayList<>();
+    private String fragmentOfEmplyeeLastName;
 
     public Employee() {
     }
@@ -71,5 +72,13 @@ public class Employee {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getFragmentOfEmplyeeLastName() {
+        return fragmentOfEmplyeeLastName;
+    }
+
+    public void setFragmentOfEmplyeeLastName(String fragmentOfEmplyeeLastName) {
+        this.fragmentOfEmplyeeLastName = fragmentOfEmplyeeLastName;
     }
 }
