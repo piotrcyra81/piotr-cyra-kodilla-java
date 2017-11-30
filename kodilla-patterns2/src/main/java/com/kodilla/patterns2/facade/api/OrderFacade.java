@@ -16,7 +16,7 @@ public class OrderFacade {
     @Autowired
     private ShopService shopService;
 
-    public void processOrder(final OrderDto order, final Long userId) throws OrderProcessingException {
+    public void processOrder(OrderDto order, Long userId) throws OrderProcessingException {
         boolean wasError = false;
         long orderId = shopService.openOrder(userId);
         LOGGER.info("Registering new order , id: " + orderId);
