@@ -13,7 +13,7 @@ public class CrudAppTestingApp {
     public static final String XPATH_SELECT = "//div[contains(@class, \"tasks-container\")]/form/div/fieldset/select[1]";
 
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
         driver.get("https://piotrcyra81.github.io/");
 
         WebElement searchField = driver.findElement(By.xpath(XPATH_INPUT));
